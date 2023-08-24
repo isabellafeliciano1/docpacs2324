@@ -2,9 +2,12 @@ among = 0
 for (i = 0; i < 3; i++){
 let amongus = Math.floor(Math.random()*12) + 1
 
-if (amongus == 11) amongus = 'J', among + 11
-if (amongus == 12) amongus = 'Q', among + 12
-if (amongus == 13) amongus = 'K', among + 13
+if (amongus == 11){ amongus = 'J' 
+among += 11}
+else if (amongus == 12){ amongus = 'Q' 
+among += 12}
+else if (amongus == 13){ amongus = 'K' 
+among += 13}
 else (among += amongus)
 
 let bogungus = Math.floor(Math.random()*3)
