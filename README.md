@@ -1,2 +1,1 @@
-Alexander Plitt
 Brandon Camacho
