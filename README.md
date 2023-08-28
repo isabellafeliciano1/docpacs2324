@@ -5,3 +5,5 @@ Junior Developers:
 
 Senior Developers:
 Logan Danner
+Alexander Plitt
+Brandon Camacho
