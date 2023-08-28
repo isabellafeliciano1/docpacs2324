@@ -1,3 +1,4 @@
+Talon Pauling
 Amber unger
 Carmen Cedano
 Alexander Plitt
