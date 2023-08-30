@@ -2,7 +2,7 @@
   "name": "docpacs2324",
   "version": "1.0.0",
   "description": "Jordan Sutherland",
-  "main": "BM.js",
+  "main": "javascript.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
