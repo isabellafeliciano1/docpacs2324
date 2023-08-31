@@ -23,12 +23,15 @@ else {
 
 
 
-let amongus = ['The', 'Impostor', 'Sus']
-console.log(amongus)
 
-for (var i = 0; 1 < Array.length; i++) {
-    if (arr[i] == 'Impostor') {
-        arr.splice(i, 1);
+
+const Amongus = {
+    impostor(role) {
+        this.role = role;
+    }
+    sus: function () {
+
     }
 }
-console.log(amongus)
+
+console.log(Amongus.sus())

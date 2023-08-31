@@ -17,10 +17,13 @@ else: (
 
 
 
-amongus = ['The', 'Impostor', 'Sus']
-print(amongus)
+class Impostor: 
+    def __init__(self, role):
+        self.role = role
 
+    def character(self):
+        print(self.role)
 
+amongus = Impostor("Impostor")
 
-amongus.pop(0)
-print(amongus)
+amongus.character()
