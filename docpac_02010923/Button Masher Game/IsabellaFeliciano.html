@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Masher Game</title>
+</head>
+
+<body>
+    Press button to connect.
+    <div id="axes" style="display: flex; flex-direction: column;"></div>
+    <div id="buttons" style="display: flex; flex-direction: column;"></div>
+
+
+    <div id="scorebox">Score: </div>
+    <div id="timerbox">Timer: </div>
+    <div id="directionbox">Direction: </div>
+
+</body>
+
+<script>
+
+    let score = 0
+    let timer = 20
+    let direction = 0
+
+    var sbox = document.getElementById('scorebox');
+    var tbox = document.getElementById('timerbox');
+    var dbox = document.getElementById('directionbox');
+    tbox.innerHTML = "Timer: " + timer
+    sbox.innerHTML = "Score: " + score
+    dbox.innerHTML = "Direction: "
+
+
+    function ticker() {
+        if (timer > 0) {
+            timer -= 1
+            tbox.innerHTML = "Timer: " + timer
+        }
+    }
+
+    setInterval(ticker, 1000)
+
+    setInterval(direct => {
+        rand = Math.floor(Math.random() * 4) ;
+
+        if (rand == 0) {
+            direction = "Up"
+            dbox.innerHTML = "Direction: " + direction
+        } else if (rand == 1) {
+            direction = "Right"
+            dbox.innerHTML = "Direction: " + direction
+        } else if (rand == 2) {
+            direction = "Down"
+            dbox.innerHTML = "Direction: " + direction
+        } else if (rand == 3) {
+            direction = "Left"
+            dbox.innerHTML = "Direction: " + direction
+        }
+    }, 2000)
+
+    window.addEventListener('gamepadconnected', (event) => {
+        const update = () => {
+            for (const gamepad of navigator.getGamepads()) {
+                if (!gamepad) continue;
+                if (gamepad.buttons[0].pressed) {
+                    //Do this stuff when the A button is pressed on any controller
+                    if (timer > 0 && direction == "Left" && gamepad.axes[0] == -1) {
+                        score += 1
+                        sbox.innerHTML = "Score: " + score
+                    }
+                    if (timer > 0 && direction == "Right" && gamepad.axes[0] == 1) {
+                        score += 1
+                        sbox.innerHTML = "Score: " + score
+                    }
+                    if (timer > 0 && direction == "Up" && gamepad.axes[1] == -1) {
+                        score += 1
+                        sbox.innerHTML = "Score: " + score
+                    }
+                    if (timer > 0 && direction == "Down" && gamepad.axes[1] == 1) {
+                        score += 1
+                        sbox.innerHTML = "Score: " + score
+                    }
+
+                    
+                } 
+                if (gamepad.buttons[9].pressed) {
+                    location.reload();
+                }
+
+            }
+
+            requestAnimationFrame(update);
+        };
+        update();
+    });
+
+
+
+</script>
+
+</html>
