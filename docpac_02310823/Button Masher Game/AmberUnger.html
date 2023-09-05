@@ -1,0 +1,115 @@
+<!DocType html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <h id="button"></h>
+    <h id="gpInfo"></h>
+
+
+</head>
+
+<body>
+    <center>
+        <div id="scorebox" style="font-size:800%;">
+        </div>
+        <div id="timerbox" style="font-size:800%;">
+        </div>
+        <div id="axes" style="display: flex; flex-direction: column;"></div>
+        <div id="directionbox" style="font-size:800%;">
+            <script>
+                var score = 0
+                var direction = 0
+                var timer = 21
+                var laststate = false;
+                var way = ""
+
+                setInterval(() => {
+                    if (timer > 0) {
+                        way = Math.floor(Math.random() * 4)
+                        var type = ""
+                        if (way === 0) {
+                            way = "up"
+                        } else if (way === 1) {
+                            way = "down"
+                        } else if (way === 2) {
+                            way = "left"
+                        } else if (way === 3) {
+                            way = "right"
+                        }
+
+
+
+                        let html = document.getElementById("directionbox").innerHTML = ("direction  = " + way);
+
+                    }
+                }, 2000);
+
+                window.addEventListener('gamepadconnected', (event) => {
+                    const update = () => {
+                        const output = document.getElementById('axes');
+                        output.innerHTML = ''; // clear the output
+///check if timer is out, if there is time, continue
+                        for (const gamepad of navigator.getGamepads()) {
+                            // console.log(gamepad);
+                            if (!gamepad) continue;
+                            console.log(gamepad.buttons[0].pressed);
+                            //if a button is pressed
+                            if (gamepad.buttons[0] != laststate) {
+                                laststate = gamepad.buttons[0]
+                                if (laststate) { //button pressed code
+                                }
+                            }
+                            if (gamepad.axes[1] <= -0.8 && way == "up") {
+                                if (gamepad.buttons[0].pressed) {
+                                    score++
+                                }
+                            };
+                            if (gamepad.axes[1] >= 0.8 && way == "down") {
+                                if (gamepad.buttons[0].pressed) {
+                                    score++
+                                }
+                            }
+                            if (gamepad.axes[0] == 1 && way == "right") {
+                                if (gamepad.buttons[0].pressed) {
+                                    score++
+                                }
+                            };
+                            if (gamepad.axes[0] == -1 && way == "left") {
+                                if (gamepad.buttons[0].pressed) {
+                                    score++
+                                }
+                            }
+                            let html = document.getElementById("scorebox").innerHTML = ("Score = " + score);
+
+                        }
+                        requestAnimationFrame(update);
+                    };
+                    update();
+                });
+                setInterval(() => {
+
+                    if (timer > 0) {
+                        timer--
+                    }
+
+                    let html = document.getElementById("timerbox").innerHTML = ("time = " + timer);
+                }, 1000);
+
+                window.addEventListener("gamepadconnected", function (e) {
+                    var gp = navigator.getGamepads()[e.gamepad.index];
+                    document.getElementById("gpInfo").innerHTML = ("score = " + timer)
+                    //alert("A " + gp.id + " was successfully detected!")
+
+
+                    setInterval(function () {
+                        isPressed = gp.buttons[0].pressed;
+                        document.getElementById("button").innerHTML = isPressed;
+                    }, 100)
+                });
+            </script>
+        </div>
+    </center>
+</body>
+
+</html>
