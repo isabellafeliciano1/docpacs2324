@@ -1,3 +1,5 @@
+Taysaun Johnson
+Brandon Camacho
 Talon Pauling
 Amber unger
 Carmen Cedano
