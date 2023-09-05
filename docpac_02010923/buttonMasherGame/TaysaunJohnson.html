@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Button Masher Game</title>
+    <script>
+        var score = 0
+        var timer = 20
+        var direction = 0
+        var contDirection = 0
+        var laststate = false
+        window.addEventListener('gamepadconnected', (event) => {
+            const update = () => {
+                const output = document.getElementById('axes');
+                output.innerHTML = ''; // clear the output
+
+                for (const gamepad of navigator.getGamepads()) {
+                    if (!gamepad) continue;
+                    for (const [index, axis] of gamepad.axes.entries()) {
+                        output.innerHTML +=
+                            `<label>${gamepad.index}, ${index}
+                                    <progress value=${axis * 0.5 + 0.5}></progress>
+                                </label>`;
+                    }
+                }
+                const cont = navigator.getGamepads()[0]
+                if (cont.buttons[0].pressed != laststate) {
+                    laststate = cont.buttons[0].pressed
+                    if (laststate) {
+                        if (cont.axes[0] >= 0.8) {
+                            contDirection = "right"
+                        } else if (cont.axes[0] <= -0.8) {
+                            contDirection = "left"
+                        } else if (cont.axes[1] >= 0.8) {
+                            contDirection = "down"
+                        } else if (cont.axes[1] <= -0.8) {
+                            contDirection = "up"
+                        }
+
+                        if (cont.buttons[0].pressed) {
+                            if (timer > 0 && contDirection == direction) {
+                                score++;
+                            }
+
+                        }
+                        document.getElementById("score box").innerHTML = score
+                        if (cont.buttons[9].pressed) {
+                            location.reload()
+                        }
+                    }
+                }
+
+
+                requestAnimationFrame(update);
+            };
+            update();
+        });
+        //decrease timer by a second
+        function lessTimer() {
+            if (timer > 0) {
+                timer--;
+                document.getElementById("timer box").innerHTML = timer
+            };
+        };
+        //Random number every 2 sec
+        function dir() {
+            direction = Math.floor(Math.random() * 4)
+            if (direction == 0) {
+                direction = "up"
+                document.getElementById("direction box").innerHTML = "up";
+            } else if (direction == 1) {
+                direction = "right"
+                document.getElementById("direction box").innerHTML = "right";
+            } else if (direction == 2) {
+                direction = "down"
+                document.getElementById("direction box").innerHTML = "down";
+            } else if (direction == 3) {
+                direction = "left"
+                document.getElementById("direction box").innerHTML = "left";
+            }
+
+        };
+
+        //Sets direction according to the variable value
+        setInterval(dir, 2000)
+        setInterval(lessTimer, 1000)
+    </script>
+</head>
+
+<body>
+    <div id="axes" style="display: flex; flex-direction: column;"></div>
+    <div id="score box">
+
+    </div>
+    <div id="timer box">
+
+    </div>
+    <div id="direction box">
+
+    </div>
+</body>
+
+</html>
