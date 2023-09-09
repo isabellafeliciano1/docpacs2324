@@ -8,3 +8,4 @@ Ryan Stevenson
 Isabella Feliciano
 Logan Danner
 Antonio Cruz
+Sergio Davalos
