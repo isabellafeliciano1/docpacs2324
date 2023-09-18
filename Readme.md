@@ -6,5 +6,3 @@ Carmen Cedano
 Alexander Plitt
 Ryan Stevenson
 Isabella Feliciano
-Logan Danner
-Antonio Cruz
