@@ -1,19 +1,18 @@
-
 const express = require('express');
-const path = require('path')
+const path = require('path');
+const ejs = require('ejs');
 
 const app = express();
 const PORT = 3000;
 
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('index.ejs', { name: req.query.name })
+    if (!req.query.name) { res.render('index.ejs', { name: 'Guest' }) }
+    else { res.render('index.ejs', { name: req.query.name }) }
+
 });
-app.get('/branch', (req, res) => {
-    var name = 'Guest'
-    res.send(name)
-})
+
 
 // Start an HTTP Listen Server
 app.listen(PORT, (error) => {
