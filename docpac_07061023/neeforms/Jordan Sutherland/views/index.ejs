@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nee Stack</title>
+    <style>
+        html,
+        body {
+            margin: 0px;
+            height: 100%;
+        }
+
+        div {
+            background-color: bisque;
+            line-height: 25vh;
+            text-align: center;
+            border-radius: 25px;
+            margin: 0px;
+            height: 99%;
+        }
+
+        #center {
+            border: 10px solid coral;
+            font-size: 5vi;
+        }
+
+        #check {
+            border-radius: 0px;
+            border: 3px solid coral;
+        }
+
+        input.textbox {
+            width: 40vw;
+            height: 8vh;
+        }
+
+        input.boxes {
+            width: 8vw;
+            height: 8vh;
+        }
+
+        input[type="text"],
+        input[type="submit"] {
+            font-size: 50%;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div>
+        <div id="center">
+
+            <form action="/POST" method="get">
+                <input type="text" name="us" class="textbox">
+                <label for="amongT">Among</label><br>
+                <div id="check">
+                    <input type="checkbox" name="uses" class="boxes">
+                    <label for="amongC">The</label><br>
+                </div>
+                <input type="submit">
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
