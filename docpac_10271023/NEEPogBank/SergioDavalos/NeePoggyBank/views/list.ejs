@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pog</title>
+    <style>
+      
+    </style>
+</head>
+
+<body>
+
+    <div id="vertical">
+        <table>
+            <tr>
+                <th colspan="2">
+                    <a href='/edit'>Edit Pog Amounts</a>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <img src="Spooderman.png" alt="Spoooderman" width="80%" height="80%">
+                </td>
+                <td>
+                    <p>\/Users in Database\/</p>
+                    <% for (username of Object.keys(data)) { %>
+                        <li>
+                            <a href='/balance?username=<%- username %>'><%- username %></a>
+                        </li>
+                        <% } %>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
