@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pog</title>
+    <style>
+        html {
+            border: 5px solid bisque;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            width: 99%;
+            height: 98.5%;
+            background-color: bisque;
+        }
+
+        body {
+            border: 5px solid bisque;
+            width: 98.5%;
+            min-height: 98%;
+            background-color: white;
+            border-radius: 35px;
+            font-size: 162.5%;
+        }
+
+        #vertical {
+            padding: 20%;
+        }
+
+        input {
+            font-size: 2vi;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="vertical">
+        <% if (username===undefined) { %>
+            <p>No Username Selected</p>
+            <% } else if (username=='none' ) {%>
+                <p>Username not in database OR none user selected</p>
+
+                <% } else { %>
+                    <%- username %>'s balance is <%- pogAmount %> pogs
+                            <% } %>
+                                <div>
+                                    <a href="/">Return</a>
+                                </div>
+    </div>
+
+</body>
+
+</html>
