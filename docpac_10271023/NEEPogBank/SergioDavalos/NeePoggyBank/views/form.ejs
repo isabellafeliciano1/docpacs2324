@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pog</title>
+    
+    
+</head>
+
+<body>
+
+    <div id="vertical">
+        <% if (form) { %>
+            <form action="/submit" method="POST">
+                <input type="text" name="username" placeholder="name here" required>
+                <input type="number" name="pogAmount" placeholder="Pogs to Add" required>
+                <input type="submit" value="submit">
+            </form>
+            <% } %>
+                <% if (!form) { %>
+                    <form action="/edit" method="GET">
+                        <input type="submit" value="Return">
+                    </form>
+                    <% } %>
+                        <%- salute %>
+    </div>
+
+
+
+
+</body>
+
+</html>
