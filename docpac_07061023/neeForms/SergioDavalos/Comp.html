@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body style="text-align: center;">
+    <h1 style="color:green;">
+        Sheeeesh
+    </h1>
+
+    <form action="/submit" method="post">
+        <label for="username"> Please enter your username: </label>
+        <input type="text" placeholder="username" id="checkbox-Checked" minlength="3" maxlength="20" required="true"
+            value=""><br><br>
+        <input type="checkbox" name="myDiv" id="myDiv" value="">
+        <input type="submit" name="" value="Submit">
+
+
+
+
+    </form>
+
+    <script>
+        const btnE1 = document.querySelector('button');
+        const inputE1 = document.querySelector('nameInput');
+        const listE1 = document.querySelector('u1');
+
+        btnE1.addEventListener('click', () => {
+            const inputValue = inputE1.value;
+            listE1.innerHTML = `<li>${inputValue}</li>`;
+
+        })
+    </script>
+
+
+    <div id="myDiv"></div>
+    <script>
+        if (myDiv)
+
+            function geek() {
+                var myDiv = document.getElementById("myDiv");
+
+                // creating checkbox element
+                var checkbox = document.createElement('input');
+
+                // Assigning the attributes
+                // to created checkbox
+                checkbox.type = "checkbox";
+                checkbox.name = "name";
+                checkbox.value = "value";
+                checkbox.id = "id";
+
+                // creating label for checkbox
+                var label = document.createElement('label');
+
+                // assigning attributes for
+                // the created label tag
+                label.htmlFor = "id";
+
+                // appending the created text to
+                // the created label tag
+                label.appendChild(document.createTextNode('Would you like to keep this username?'));
+
+                // appending the checkbox
+                // and label to div
+                myDiv.appendChild(checkbox);
+                myDiv.appendChild(label);
+            }
+    </script>
+
+
+</body>
+
+</html>
