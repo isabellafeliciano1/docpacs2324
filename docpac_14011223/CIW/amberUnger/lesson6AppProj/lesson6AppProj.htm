@@ -7,10 +7,11 @@
 
     <script type="text/javascript">
         function display_image(selectedImage) {
-            console.log(selectedImage)
+
             var selectionName = selectedImage.options[selectedImage.selectedIndex].text;
             var selection = selectedImage.options[selectedImage.selectedIndex].value;
         }
+        // i am still have trouble understanding this project
     </script>
 </head>
 
@@ -20,10 +21,10 @@
     <p>
         Select an image:
     </p>
-    <select onchange="display_image(selectionName)"  name="images">
+    <select onchange="display_image(selectionName)" name="images">
         <option value="" />one</option>
         <option value="" />two</option>
-      
+
     </select>
 
 
