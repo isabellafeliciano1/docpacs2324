@@ -1,0 +1,53 @@
+{
+	"folders": [
+		{
+			"name": "Lab7-1",
+			"path": "../../Lab7-1/Lab7-1"
+		},
+		{
+			"name": "CIW",
+			"path": "../../../Desktop/CIW"
+		},
+		{
+			"name": "Lab7-2",
+			"path": "../../Lab7-2/Lab7-2"
+		},
+		{
+			"name": "Lab7-3",
+			"path": "../../Lab7-3/Lab7-3"
+		},
+		{
+			"name": "Lab7-4",
+			"path": "."
+		},
+		{
+			"name": "Lab7-5",
+			"path": "../../Lab7-5/Lab7-5"
+		},
+		{
+			"name": "Lab7-6",
+			"path": "../../Lab7-6/Lab7-6"
+		},
+		{
+			"name": "Lab7-7",
+			"path": "../../Lab7-7/Lab7-7"
+		},
+		{
+			"name": "Lab7-8",
+			"path": "../../Lab7-8/Lab7-8"
+		},
+		{
+			"name": "Lab7-9",
+			"path": "../../Lab7-9/Lab7-9"
+		},
+		{
+			"name": "lesson7AppProject",
+			"path": "../../lesson7AppProject/lesson7AppProject"
+		},
+		{
+			"name": "optionalLab7-1",
+			"path": "../../optionalLab7-1/optionalLab7-1"
+		}
+	],
+	"settings": {}
+}
