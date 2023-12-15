@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lab 8-2</title>
+
+<script type="text/javascript">
+<!--
+
+//
+//  YES I KNOW THEY ASKED FOR DEVICE, NAME , & BRAND BUT I GENUINELY NEEDED TO DO THIS IN A WAY MY HEAD COULD GRASP / CONNECTED WITH
+//
+class Players {
+    constructor(first, last, type, weapon) {
+        this.firstName = first
+        this.lastName = last
+        this.classType = type
+        this.weaponChoice = weapon
+    }
+
+    display() {
+        document.write('Their full name is ' + this.firstName + " " + this.lastName + ' their class is ' + this.classType + ' and the weapon they wield is a ' + this.weaponChoice )
+    }
+}
+
+var player1 = new Players("Matthew", "Brown", "Melee", "Nights Edge")
+
+//-->
+</script>
+</head>
+<body onload="(player1.display())">
+<h3>CIW JavaScript Specialist</h3>
+<hr />
+
+</body>
+</html>
