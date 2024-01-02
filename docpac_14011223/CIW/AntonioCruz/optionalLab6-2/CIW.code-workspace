@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../../../../CIW"
+		},
+		{
+			"path": "../Lab6-6"
+		},
+		{
+			"path": "../Lab6-7"
+		},
+		{
+			"path": "../optionalLab6-1"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Lab6-6"
+	}
+}
