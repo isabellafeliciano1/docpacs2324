@@ -14,36 +14,39 @@
       this.department = department
       this.extension = extension
       this.showEmployee = showEmployee
-      
+  
+  
+  
     }
-    
+  
       // Instantiate 3 instances of employeeObject
   // Important - Start your array index numbers with 1
       var employees = new Array();
   employees[0] = "Select Employee";
-  employees[1] = ("Mai Li", "Sales", 551);
-  employees[2] = ("Maria Alvarez", "Human Resources", 441);
-  employees[3] = ("Tom Smith", "Marketing", 331);
+  employees[1] = new employeeObject("Mai Li", "Sales", 551);
+  employees[2] = new employeeObject("Maria Alvarez", "Human Resources", 441);
+  employees[3] = new employeeObject("Tom Smith", "Marketing", 331);
   
   len = employees.length;
   
     function showEmployee() {
       var info = "";
   // Complete the showEmployee() function
+      info += "Employee: " + employees.name + "\n";
+      info += "Department: " + employees.department + "\n";
+      info += "Extension: " + employees.extension + "\n"
+
     
-        info += "Employee: " + employees[1].name + "\n";
-        info += "Department: " + employees[1].department +  "\n";
-        info += "Extension: " + employees[1].extension + "\n\n";
+    
       alert(info);
     }
 
     function showAllEmployees() {
         var info = "";
-        var len = employees.length
     for (var i = 1; i < len; i++) {
         info += "Employee: " + employees[i].name + "\n";
         info += "Department: " + employees[i].department +  "\n";
-        info += "Extension: " + employees[i].extension + "\n\n";
+    info += "Extension: " + employees[i].extension + "\n\n";
       }
     
     alert(info);
@@ -57,7 +60,7 @@
 <hr />
 <form name="empForm" id="empForm">
 <strong>Select name to view information:</strong> 
-<select name="empName" onchange="showEmployee();this.selectedIndex=0;">
+<select name="empName" onchange="employees[this.selectedIndex].showEmployee();this.selectedIndex=0;">
 <script type="text/javascript">
 <!--
 
