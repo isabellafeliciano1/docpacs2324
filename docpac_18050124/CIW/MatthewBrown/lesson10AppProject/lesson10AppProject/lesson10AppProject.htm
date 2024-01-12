@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lesson 10 Application Project</title>
+
+<script language="javascript">
+<!--
+
+
+    function validate(form) {
+        var card = document.forms[0].ccard.value;
+
+        var cardNum = form.number.value;
+
+        var month = form.expMo.value;
+
+        var year = form.expYr.value;
+
+        var cardExpDate = new Date(year, month - 1);
+
+        var currentDate = new Date()
+
+        cardExpDate.setHours(0, 0, 0, 0);
+
+        currentDate.setHours(0, 0, 0, 0);
+
+        if(cardExpDate < currentDate) {
+        alert("Your card is expired");
+        return false;
+    }
+
+        if(isNaN(cardNum)) {
+        alert("Card number must be a number");
+        return false;
+    }
+
+    var firstDigit = cardNum.charAt(0);
+
+    if(card == "amex" && firstDigit != "3") {
+        alert("American Express card number must start with 3");
+        return false;
+    }
+    else if(card == "visa" && firstDigit != "4") {
+        alert("Visa card number must start with 4");
+        return false;
+    }
+    else if(card == "mc" && firstDigit != "5") {
+        alert("MasterCard card number must start with 5");
+        return false;
+    }
+
+    if(card == "amex" && cardNum.length != 15) {
+        alert("American Express card number must be 15 digits");
+        return false;
+    }
+    else if(card == "visa" && cardNum.length != 16) {
+        alert("Visa card number must be 16 digits");
+        return false;
+    }
+    else if(card == "mc" && cardNum.length != 16) {
+        alert("MasterCard card number must be 16 digits");
+        return false;
+    }
+    else if(card == "" || cardNum == "") {
+        alert("Please select a card type and enter a card number");
+        return false;
+    }
+    else {
+        alert("Thank you for your order");
+        return true;
+
+
+
+
+
+
+
+
+    }}
+
+  
+
+//-->
+</script>
+
+</head>
+
+<body>
+
+<h3>CIW JavaScript Specialist</h3>
+<hr />
+<form name="ccForm">
+<p>
+<input type="radio" name="ccard" value="visa" />
+Visa
+</p>
+<p>
+<input type="radio" name="ccard" value="mc" />
+MasterCard
+</p>
+<p>
+<input type="radio" name="ccard" value="amex" />
+American Express
+</p>
+<p>
+Card # 
+<input type="text" name="number" />
+</p>
+<p>
+Exp Date: 
+<select name="expMo">
+<option value=0>Jan
+<option value=1>Feb
+<option value=2>Mar
+<option value=3>Apr
+<option value=4>May
+<option value=5>Jun
+<option value=6>Jul
+<option value=7>Aug
+<option value=8>Sep
+<option value=9>Oct
+<option value=10>Nov
+<option value=11>Dec
+</select> 
+<select name="expYr">
+<option value=2011>2011
+<option value=2012>2012
+<option value=2013>2013
+<option value=2014>2014
+<option value=2015>2015
+<option value=2016>2016
+<option value=2017>2017
+<option value=2018>2018
+<option value=2019>2019
+<option value=2020>2020
+<option value=2021>2021
+<option value=2022>2022
+<option value=2023>2023
+<option value=2024>2024
+<option value=2025>2025
+<option value=2026>2026
+<option value=2027>2027
+</select>
+</p>
+
+<input type="button" value="Check Form" onClick="validate(this.form);" />
+<input type="reset" value="Reset Form" />
+</form>
+
+</body>
+</html>
