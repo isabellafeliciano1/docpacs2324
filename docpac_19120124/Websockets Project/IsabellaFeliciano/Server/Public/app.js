@@ -1,4 +1,4 @@
-const socket = io('ws://localhost:3500')
+const socket = io('ws://172.16.3.104:3500')
 
 const msgInput = document.querySelector('#message')
 const nameInput = document.querySelector('#name')
