@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lab 10-1</title>
+<script>
+    // DOMContentLoaded event handler
+    document.addEventListener("DOMContentLoaded", function(){
+        // onsubmit event handler for the form
+        document.getElementById("myForm").onsubmit = function(){
+            event.preventDefault();
+
+            // gets the values of the form fields
+            var fname = document.myForm.fname.value;
+            var lname = document.myForm.lname.value;
+            var email = document.myForm.email.value;
+            var pwd = document.myForm.pwd.value;
+            var gen = document.myForm.gen.value;
+
+            // concatenates the values of the form fields
+            alert("Name: " + fname + " " + lname + "\nEmail: " + email + "\nPassword: " + pwd + "\nGender: " + gen);
+        }
+    })
+</script>
+</head>
+<body>
+<h3>CIW JavaScript Specialist</h3>
+<hr />
+<form name="myForm" id="myForm">
+	<label><b>Name</b></label>
+    <input type="text" placeholder="FirstName" name="fname" required> 
+	<input type="text" placeholder="LastName" name="lname" required> <br />
+	 <label><b>EMail</b></label>
+	<input type="text" placeholder="Enter Email ID" name="email" required> <br />
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="pwd" required maxLength="10"> <br />
+	 <label><b>Gender</b></label>
+    <input type="radio" name="gen" value="male">Male
+	<input type="radio" name="gen" value="female">Female <br />
+    <input type="submit">
+    <input type="reset">
+</form>
+</body>
+<!--
+    document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById("myForm").onsubmit = function(event){
+        event.preventDefault();
+
+        var fname = document.myForm.fname.value;
+        var lname = document.myForm.lname.value;
+        var email = document.myForm.email.value;
+        var pwd = document.myForm.pwd.value;
+        var gen = document.querySelector('input[name="gen"]:checked') ? document.querySelector('input[name="gen"]:checked').value : '';
+
+        // Validation
+        if (!fname || !lname || !email || !pwd || !gen) {
+            alert("All fields must be filled out");
+            return false;
+        }
+
+        if (pwd.length < 8) {
+            alert("Password must be at least 8 characters long");
+            return false;
+        }
+
+        var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address");
+            return false;
+        }
+
+        alert("Name: " + fname + " " + lname + "\nEmail: " + email + "\nPassword: " + pwd + "\nGender: " + gen);
+    }
+}) CoPilot recommended this code
+-->
+
+</html>
