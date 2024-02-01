@@ -11,9 +11,21 @@
     <div id="search">Searching...</div>
 
     <script>
+        var BACKSTYLE = document.body.style;
+
+        BACKSTYLE.backgroundColor = "";
+
         document.getElementById("submit").addEventListener("click", function() {
-                document.body.style.backgroundColor = "red";
+            return BACKSTYLE.backgroundColor = "red";
         });
+
+        let changeColor = () => {
+                BACKSTYLE.backgroundColor = "green";
+            }
+
+        if (BACKSTYLE.backgroundColor == "red") {
+            setInterval(changeColor, 1000)
+        };
     </script>
 </body>
 </html>
