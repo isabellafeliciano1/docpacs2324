@@ -1,12 +1,11 @@
 const express = require('express');
-const app = express();
-const path = require('path');
 const http = require('http');
-const {Server} = require('socket.io');
+const socketIO = require('socket.io');
+const path = require("path")
 
+const app = express();
 const server = http.createServer(app);
-
-const io = new Server(server);
+const io = socketIO(server);
 app.use(express.static(path.resolve("")));
 
 let arr=[]
@@ -46,6 +45,7 @@ io.on('connection', (socket) => {
 app.get('/', (req, res) => {
     return res.sendFile("index.html")
 })
+
 
 app.listen(3000, (err) => {
     if (err) {
