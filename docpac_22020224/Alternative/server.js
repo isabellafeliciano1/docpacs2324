@@ -39,13 +39,19 @@ const io = require("socket.io")(http);
 
 app.use(express.static("public"));
 
+var players = [];
+
 io.on("connection", (socket) => {
     console.log("new user connected");
     socket.emit("message", "Welcome to the chat");
     socket.broadcast.emit("message", "A new user has joined the chat");
 
-    socket.on("sendMessage", (message) => {
-        io.emit("message", message);
+    socket.on("newPlayer", (player) => {
+        players.push(player)
+        if (players.length === 2) {
+            io.emit("enough")
+            players = [];
+        }
     });
 
     socket.on("disconnect", () => {
@@ -54,10 +60,15 @@ io.on("connection", (socket) => {
 });
 
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
     res.render("index");
 });
+
+app.get("/script.js", (req, res) => {
+    res.sendFile(__dirname + "/script.js");
+})
 
 http.listen(3000, (err)=>{
     if (err) {

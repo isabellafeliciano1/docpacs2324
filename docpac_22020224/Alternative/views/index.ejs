@@ -4,38 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
     <input class="form" type="text" id="name" placeholder="Enter name">
     <input class="form" type="button" id="submit" value="Submit"> 
     <div id="search">Searching...</div>
 
-    <script>
-        //link to server.js
-        var socket = io.connect('http://localhost:3000');
-        //listen for the message
-        
-        var BACKSTYLE = document.body.style;
- 
-        document.getElementById("search").style.display = "none";
-
-        BACKSTYLE.backgroundColor = "";
-
-        document.getElementById("submit").addEventListener("click", function() {
-            BACKSTYLE.backgroundColor = "red";
-            if (BACKSTYLE.backgroundColor === "red") {
-                let changeColor = () => {
-                        BACKSTYLE.backgroundColor = "green";
-                    }
-                setInterval(changeColor, (Math.random() * 6000) + 4000);
-            }
-            document.getElementById("name").style.display = "none";
-            document.getElementById("submit").style.display = "none";
-            document.getElementById("search").style.display = "block";
-        });
-        
-
-        
-    </script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
