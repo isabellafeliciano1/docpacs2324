@@ -6,26 +6,36 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="name" placeholder="Enter name">
-    <input type="button" id="submit" value="Submit"> 
+    <input class="form" type="text" id="name" placeholder="Enter name">
+    <input class="form" type="button" id="submit" value="Submit"> 
     <div id="search">Searching...</div>
 
     <script>
+        //link to server.js
+        var socket = io.connect('http://localhost:3000');
+        //listen for the message
+        
         var BACKSTYLE = document.body.style;
+ 
+        document.getElementById("search").style.display = "none";
 
         BACKSTYLE.backgroundColor = "";
 
         document.getElementById("submit").addEventListener("click", function() {
-            return BACKSTYLE.backgroundColor = "red";
-        });
-
-        let changeColor = () => {
-                BACKSTYLE.backgroundColor = "green";
+            BACKSTYLE.backgroundColor = "red";
+            if (BACKSTYLE.backgroundColor === "red") {
+                let changeColor = () => {
+                        BACKSTYLE.backgroundColor = "green";
+                    }
+                setInterval(changeColor, (Math.random() * 6000) + 4000);
             }
+            document.getElementById("name").style.display = "none";
+            document.getElementById("submit").style.display = "none";
+            document.getElementById("search").style.display = "block";
+        });
+        
 
-        if (BACKSTYLE.backgroundColor == "red") {
-            setInterval(changeColor, 1000)
-        };
+        
     </script>
 </body>
 </html>
