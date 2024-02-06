@@ -53,10 +53,6 @@ io.on("connection", (socket) => {
             players = [];
         }
     });
-
-    socket.on("disconnect", () => {
-        io.emit("message", "A user has left the chat");
-    });
 });
 
 app.set("view engine", "ejs");
@@ -69,6 +65,10 @@ app.get("/", (req, res) => {
 app.get("/script.js", (req, res) => {
     res.sendFile(__dirname + "/script.js");
 })
+
+app.get("/style.css", (req, res) => {
+    res.sendFile(__dirname + "/style.css");
+});
 
 http.listen(3000, (err)=>{
     if (err) {

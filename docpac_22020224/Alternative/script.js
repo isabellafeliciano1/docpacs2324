@@ -18,13 +18,20 @@
             document.getElementById("submit").style.display = "none";
             document.getElementById("search").style.display = "block";
             socket.on("enough", () => {
+                document.getElementById("search").style.display = "none";
                 BACKSTYLE.backgroundColor = "red";
                 if (BACKSTYLE.backgroundColor === "red") {
                     let changeColor = () => {
                             BACKSTYLE.backgroundColor = "green";
+                            return;
                         }
-                    setInterval(changeColor, (Math.random() * 6000) + 4000);
+                        setTimeout(changeColor, (Math.random() * 6000) + 4000);
+                    }
+                });
+            })
+            document.body.addEventListener("click", function() {
+                if (BACKSTYLE.backgroundColor === "green") {
+                    BACKSTYLE.backgroundColor = "";
                 }
-                document.getElementById("search").style.display = "none";
             });
-        })
+        
