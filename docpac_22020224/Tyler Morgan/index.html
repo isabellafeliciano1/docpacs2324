@@ -180,9 +180,9 @@
         let oppName
         let value
 
-        const foundObject = allPlayersArray.find(obj => obj.p1.p1name == `${name}` || obj.p2.p2name == `${name}`);
-        foundObject.p1.p1name == `${name}` ? oppName = foundObject.p2.p2name : oppName = foundObject.p1.p1name
-        foundObject.p1.p1name == `${name}` ? value = foundObject.p1.p1value : value = foundObject.p2.p2value
+        const foundObject = allPlayersArray.find(obj => obj.p1.p1Name == `${name}` || obj.p2.p2Name == `${name}`);
+        foundObject.p1.p1Name == `${name}` ? oppName = foundObject.p2.p2Name : oppName = foundObject.p1.p1Name
+        foundObject.p2.p2Name == `${name}` ? value = foundObject.p2.p2Value : value = foundObject.p2.p2Value
 
         document.getElementById("oppName").innerText = oppName
         document.getElementById("value").innerText = value
@@ -201,10 +201,10 @@
     })
 
     socket.on("playing", (e) => {
-        const foundObject = (e.allPlayers).find(obj => obj.p1.p1name == `${name}` || obj.p2.p2name == `${name}`);
+        const foundObject = (e.allPlayers).find(obj => obj.p1.p1Name == `${name}` || obj.p2.p2Name == `${name}`);
 
-        p1id = foundObject.p1.p1move
-        p2id = foundObject.p2.p2move
+        p1id = foundObject.p1.p1Move
+        p2id = foundObject.p2.p2Move
 
         if ((foundObject.sum) % 2 == 0) {
             document.getElementById("whosTurn").innerText = "O's Turn"

@@ -7,8 +7,8 @@ const server = http.createServer(express)
 const wss = new Websocket.Server({ server })
 
 wss.on('connection', function connection(ws) {
-    ws.on('message', function incoming(data, isBinary) {
-        wss.clients.forEach(function each(client) {
+    wss.on('message', function incoming(data, isBinary) {
+        ws.clients.forEach(function each(client) {
             if (client != ws && client.readyState == Websocket.OPEN) {
                 client.send(data, { binary: isBinary });
             }
@@ -17,5 +17,5 @@ wss.on('connection', function connection(ws) {
 })
 
 server.listen(port, function() {
-    console.log('server is good')
+    console.log(`Server is listening on ${port}!`)
 })

@@ -51,13 +51,13 @@ io.on("connection",(socket)=>{
     socket.on("playing",(e)=>{
         if(e.value == "x"){
             let objToChange = playingArr.find(obj=>obj.p1.p1Name === e.name)
-
+console.log("objToChange",objToChange);
             objToChange.p1.p1Move = e.id
             objToChange.sum++
         }
         else if(e.value == "o") {
             let objToChange = playingArr.find(obj=>obj.p2.p2Name === e.name)
-
+console.log("objToChange",objToChange);
             objToChange.p2.p2Move = e.id
             objToChange.sum++
         }
