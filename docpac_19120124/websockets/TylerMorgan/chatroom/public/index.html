@@ -23,7 +23,7 @@
             ws.onerror = ws.onopen = ws.onclose = null;
             ws.close();
            }
-           ws = new WebSocket('ws://172.16.3.151:3000');
+           ws = new WebSocket('ws://172.16.3.151:3000/', 'echo-protocol');
               ws.onopen = () => {
                 console.log('Connection started');
               }
