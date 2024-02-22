@@ -1,5 +1,7 @@
 $(function () {
+    console.log("ready");
     $("input").click(function () {
+        console.log("clicked");
         var ourText = $("p");
         var currFontSize = ourText.css("fontSize");
         var finalNum = parseFloat(currFontSize, 10);
